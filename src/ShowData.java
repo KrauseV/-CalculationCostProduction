@@ -14,14 +14,35 @@
  *    limitations under the License.
  */
 public class ShowData {
-    public void AvailibelMachines(MachineData machineData) {
+    public void AvailableMachines(MachineData machineData) {
         for (int i = 0; i < machineData.name.length; i++) {
             System.out.println(machineData.name[i]+" Мощность от "+machineData.power[i][0] + " до "+
                     machineData.power[i][machineData.power[i].length-1] );
         }
     }
-    public void ShowResult(){
-
-
+    public void ShowResult(Result result){
+asString(result);
+    }
+    void asString(Result result) {
+        StringBuilder stringBuilder = new StringBuilder();
+        String space = " ";
+        String rules = " установить на ";
+        String cost = " затраты = ";
+        String[] name = result.getName();
+        int[] indexes = result.getIndexes();
+        int[] unit = result.getUnit();
+        Unit[] units = result.getUnits();
+        int sum=0;
+        for (int i = 0; i <=result.getIndexes().length-1; i++) {
+            if (name[i] != null) {
+                stringBuilder.append(name[i]).append(space);
+                stringBuilder.append(rules).append(units[unit[i]].power[indexes[i]]).append(" Вт.");
+                stringBuilder.append(cost).append(units[unit[i]].cost[indexes[i]]).append("р.");
+                System.out.println(stringBuilder);
+                stringBuilder.setLength(0);
+                sum+=units[i].cost[indexes[i]];
+            }
+        }
+        System.out.println("Общие затраты = " + sum + "Руб.");
     }
 }
