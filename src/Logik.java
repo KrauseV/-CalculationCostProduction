@@ -55,6 +55,7 @@ while (true){
         }
         break;
     }
+    showData.ShowResult();
 }
     }
 }

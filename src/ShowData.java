@@ -20,4 +20,8 @@ public class ShowData {
                     machineData.power[i][machineData.power[i].length-1] );
         }
     }
+    public void ShowResult(){
+
+
+    }
 }
