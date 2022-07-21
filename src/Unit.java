@@ -19,10 +19,10 @@ public class Unit {
     int[] power;
     int[] cost;
 
-    public Unit(MachineData data, int MachineNumber) {
-        this.power = data.power[MachineNumber];
-        this.cost =data.cost[MachineNumber];
-        this.name = data.name[MachineNumber];
+    public Unit(ArrayMachineData data, int MachineNumber) {
+        this.power = data.getPower()[MachineNumber];
+        this.cost =data.getCost()[MachineNumber];
+        this.name = data.getName()[MachineNumber];
     }
 
 }

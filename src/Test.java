@@ -14,37 +14,29 @@
  *    limitations under the License.
  */
 
+import java.util.Arrays;
+
 public class Test {
 
 
 
     public static void main(String[] args) {
 
-while (true) {
-    Start();
-}
+       Start();
+
+
 }
 
 
     private static void Start() {
-        Logik logik = new Logik(new ShowData(),
+        Logic logic = new Logic(new ShowData(),
                 new ReadLine(),
                 new Calculation(),
-                new Chek(),
-                new MachineData(),
+                new Check(),
+                new ArrayMachineData(),
                 new Parse());
-        logik.Activ();
-      /*  ReadLine readLine;//Считывание данных от пользователя
-        MachineData machin;// Считывание таблицы соотношения мощности\стоимости.
-        Parse parse = new Parse(new ReadLine());
-        if(parse.CorrectPower()) {// If all correct
-            Calculation calculation = new Calculation(parse.units,parse.task.power);//Рассчет
-           // calculation.Calc();
-        calculation.asString();
-        }
-
-       // Print();//Вывод результата*/
-    }
+        logic.Active();
+         }
 
 
 }

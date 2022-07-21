@@ -13,49 +13,48 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-public class Logik {
+public class Logic {
 
     ShowData showData;
   ReadLine readLine;
        Calculation calculation;
-   Chek chek;
-    MachineData machineData;
-Parse parse;
+   Check check;
+   ArrayMachineData arrayMachineData;
+    Parse parse;
 
-    public Logik(ShowData showData,
+    public Logic(ShowData showData,
                  ReadLine readLine,
                  Calculation calculation,
-                 Chek chek,
-                 MachineData machineData,
+                 Check check,
+                 ArrayMachineData arrayMachineData,
                  Parse parse) {
         this.showData = showData;
        this.readLine = readLine;
         this.calculation = calculation;
-this.chek =chek;
-this.machineData = machineData;
+this.check =check;
+this.arrayMachineData = arrayMachineData;
 this.parse = parse;
     }
 
 
 
-    public void Activ(){
-              showData.AvailibelMachines(machineData);
+    public void Active(){
+       showData.AvailableMachines(arrayMachineData);
 while (true){
     System.out.println("Введите установки");
-    if(chek.isCorrectMachines(machineData,readLine.setMachins())){
+    if(check.isCorrectMachines(arrayMachineData,readLine.setMachines())){
         while (true){
             System.out.println("Введите мощность");
-            if(chek.CorrectPower(parse.getUnits(readLine.machins,machineData),readLine.setPower())) {
-               calculation.setSignature(parse.getUnits(readLine.machins,machineData),
+            if(check.CorrectPower(parse.getUnits(readLine.machines,arrayMachineData),readLine.setPower())) {
+               calculation.setSignature(parse.getUnits(readLine.machines,arrayMachineData),
                        readLine.power);
-                calculation.compute();
-                calculation.asString();
+                     showData.ShowResult(calculation.compute());
                 break;
             }
         }
         break;
     }
-    showData.ShowResult();
+
 }
     }
 }

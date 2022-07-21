@@ -14,20 +14,20 @@
  *    limitations under the License.
  */
 
-public class Chek {
-            public boolean isCorrectMachines(MachineData machinsData, String machins) {
-            if(machins.isEmpty()){
+public class Check {
+            public boolean isCorrectMachines(ArrayMachineData machinesData, String machines) {
+            if(machines.isEmpty()){
                 System.out.println("Пустая строка!");
                 return false;}
-            for (int i = 0; i < machins.length(); i++) {
-                if(Character.isLetter(machins.charAt(i))){
+            for (int i = 0; i < machines.length(); i++) {
+                if(Character.isLetter(machines.charAt(i))){
                     System.out.println("Некоректный ввод данных");
                     return false;
                 }
-                if (Character.isDigit(machins.charAt(i))) {
-                    if (Integer.parseInt(String.valueOf(machins.charAt(i))) >
-                            machinsData.name.length) {
-                        System.out.println("Такой установки не существует "+machins.charAt(i)+"!");
+                if (Character.isDigit(machines.charAt(i))) {
+                    if (Integer.parseInt(String.valueOf(machines.charAt(i))) >
+                            machinesData.getName().length) {
+                        System.out.println("Такой установки не существует "+machines.charAt(i)+"!");
                         return false;
                     }
                 }

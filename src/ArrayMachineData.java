@@ -13,21 +13,22 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-import java.util.Scanner;
 
-public class ReadLine {
-    String machines;
-    String power;
+public class ArrayMachineData  {
+    AnalysisForArrayMachineData analysisForArrayMachineData = new AnalysisForArrayMachineData();
+final private    int[][] power= analysisForArrayMachineData.getPower();
+  final private int[][] cost = analysisForArrayMachineData.getCost();
+final private String[] name = analysisForArrayMachineData.getName();
 
-
-    public String setMachines() {
-
-       return machines = new Scanner(System.in).nextLine();
+    public int[][] getPower() {
+        return power;
     }
 
-    public String setPower() {
-        return power = new Scanner(System.in).nextLine();
-            }
+    public int[][] getCost() {
+        return cost;
+    }
 
-
+    public String[] getName() {
+        return name;
+    }
 }

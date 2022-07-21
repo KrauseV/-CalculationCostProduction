@@ -14,11 +14,9 @@
  *    limitations under the License.
  */
 public class Parse {
-
-
     //Расшифровываем данные от пользователя
     //Расчет задействованных установок
-     Unit[] getUnits(String task, MachineData machineData) {
+     Unit[] getUnits(String task, ArrayMachineData machineData) {
 
          int count = 0;
         Unit [] units;

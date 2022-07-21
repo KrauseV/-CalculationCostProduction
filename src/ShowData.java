@@ -14,10 +14,12 @@
  *    limitations under the License.
  */
 public class ShowData {
-    public void AvailableMachines(MachineData machineData) {
-        for (int i = 0; i < machineData.name.length; i++) {
-            System.out.println(machineData.name[i]+" Мощность от "+machineData.power[i][0] + " до "+
-                    machineData.power[i][machineData.power[i].length-1] );
+    public void AvailableMachines(ArrayMachineData arrayMachineData) {
+
+        for (int i = 0; i < arrayMachineData.getName().length; i++) {
+            System.out.println(arrayMachineData.getName()[i]+" Мощность от "+
+                    arrayMachineData.getPower()[i][0] + " до "+
+                    arrayMachineData.getPower()[i][arrayMachineData.getPower()[i].length-1] );
         }
     }
     public void ShowResult(Result result){
@@ -28,19 +30,15 @@ asString(result);
         String space = " ";
         String rules = " установить на ";
         String cost = " затраты = ";
-        String[] name = result.getName();
-        int[] indexes = result.getIndexes();
-        int[] unit = result.getUnit();
-        Unit[] units = result.getUnits();
         int sum=0;
         for (int i = 0; i <=result.getIndexes().length-1; i++) {
-            if (name[i] != null) {
-                stringBuilder.append(name[i]).append(space);
-                stringBuilder.append(rules).append(units[unit[i]].power[indexes[i]]).append(" Вт.");
-                stringBuilder.append(cost).append(units[unit[i]].cost[indexes[i]]).append("р.");
+            if (result.getName()[i] != null) {
+                stringBuilder.append(result.getName()[i]).append(space);
+                stringBuilder.append(rules).append(result.getUnits()[result.getUnit()[i]].power[result.getIndexes()[i]]).append(" Вт.");
+                stringBuilder.append(cost).append(result.getUnits()[result.getUnit()[i]].cost[result.getIndexes()[i]]).append("р.");
                 System.out.println(stringBuilder);
                 stringBuilder.setLength(0);
-                sum+=units[i].cost[indexes[i]];
+                sum+=result.getUnits()[i].cost[result.getIndexes()[i]];
             }
         }
         System.out.println("Общие затраты = " + sum + "Руб.");
